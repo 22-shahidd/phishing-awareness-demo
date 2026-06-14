@@ -39,19 +39,19 @@ Built as part of my cybersecurity portfolio during Ethical Hacking training at E
 ## Screenshots
 
 ### Live Phishing Demo
-![Live Demo](screenshots/demo.png)
+![Live Demo](demo.png)
 
 ### Busted Page
-![Busted](screenshots/busted.png)
+![Busted](busted.png)
 
 ### Techniques Page
-![Techniques](screenshots/techniques.png)
+![Techniques](techniques.png)
 
 ### URL Analysis
-![URL Analysis](screenshots/url-analysis.png)
+![URL Analysis](url-analysis.png)
 
 ### Email Analysis
-![Email Analysis](screenshots/email-analysis.png)
+![Email Analysis](email-analysis.png)
 
 ---
 
