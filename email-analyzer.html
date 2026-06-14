@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Analysis - PhishGuard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer">
+        ⚠️ EDUCATIONAL DEMO ONLY — This page is for cybersecurity awareness purposes only.
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand" href="index.html">🎣 PhishGuard</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Live Demo</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="url-comparison.html">URL Analysis</a></li>
+            <li><a href="email-analyzer.html">Email Analysis</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-content">
+        <div class="busted-card">
+
+            <h1 style="color: #1a1a2e;">📧 Email Analysis</h1>
+            <p>Most phishing attacks start with an email. Here's how to analyse a suspicious email and spot the red flags before it's too late.</p>
+
+            <!-- Fake Email Display -->
+            <div class="technique-card">
+                <h2>🔍 Analyse This Suspicious Email</h2>
+                <p>Hover over or click the highlighted parts to see what's wrong with this email.</p>
+
+                <div class="email-container">
+
+                    <!-- Email Header -->
+                    <div class="email-header">
+                        <div class="email-row">
+                            <span class="email-field">From:</span>
+                            <span class="email-value highlight-red" onclick="showTip('sender')">
+                                support@sbi-secure-banking.net
+                            </span>
+                        </div>
+                        <div class="email-row">
+                            <span class="email-field">To:</span>
+                            <span class="email-value">you@gmail.com</span>
+                        </div>
+                        <div class="email-row">
+                            <span class="email-field">Subject:</span>
+                            <span class="email-value highlight-red" onclick="showTip('subject')">
+                                ⚠️ URGENT: Your account will be suspended in 24 hours
+                            </span>
+                        </div>
+                        <div class="email-row">
+                            <span class="email-field">Date:</span>
+                            <span class="email-value">Sun, 14 Jun 2026 03:42:11 +0000</span>
+                        </div>
+                    </div>
+
+                    <!-- Email Body -->
+                    <div class="email-body">
+                        <p>Dear <span class="highlight-red" onclick="showTip('greeting')">Valued Customer</span>,</p>
+                        <br>
+                        <p>We have detected <span class="highlight-red" onclick="showTip('urgency')">suspicious activity on your account. You must verify your identity within 24 hours or your account will be permanently suspended.</span></p>
+                        <br>
+                        <p>Please click the button below to verify your account immediately:</p>
+                        <br>
+                        <div style="text-align:center;">
+                            <span class="fake-button highlight-red" onclick="showTip('link')">
+                                🔒 Verify My Account Now
+                            </span>
+                        </div>
+                        <br>
+                        <p>If you do not verify within 24 hours, your account access will be restricted.</p>
+                        <br>
+                        <p>Regards,<br>
+                        <span class="highlight-red" onclick="showTip('signature')">SBI Customer Support Team<br>
+                        support@sbi-secure-banking.net</span></p>
+                    </div>
+
+                </div>
+
+                <!-- Tip Box -->
+                <div id="tip-box" class="tip-box" style="display:none;"></div>
+
+            </div>
+
+            <!-- Red Flags Checklist -->
+            <div class="technique-card">
+                <h2>🚩 Red Flags In This Email</h2>
+                <ul class="red-flags">
+                    <li>Sender domain is <strong>sbi-secure-banking.net</strong> — not the official sbi.co.in</li>
+                    <li>Subject line uses ALL CAPS and urgent language to create panic</li>
+                    <li>Greeting says "Valued Customer" — real banks use your actual name</li>
+                    <li>Creates artificial urgency — "24 hours or account suspended"</li>
+                    <li>Link button destination is hidden — could point anywhere</li>
+                    <li>Email sent at 3:42 AM — unusual time for official communication</li>
+                    <li>Signature uses same fake domain as sender</li>
+                </ul>
+            </div>
+
+            <!-- What To Do -->
+            <div class="technique-card">
+                <h2>✅ What To Do With Suspicious Emails</h2>
+                <ul class="tips">
+                    <li>Do NOT click any links — go to the official website directly</li>
+                    <li>Check the sender's full email address — not just the display name</li>
+                    <li>Call the organisation on their official number to verify</li>
+                    <li>Report the email as phishing in your email client</li>
+                    <li>Delete it immediately after reporting</li>
+                    <li>Never download attachments from suspicious emails</li>
+                </ul>
+            </div>
+
+            <!-- Email Checklist Tool -->
+            <div class="technique-card">
+                <h2>📋 Quick Phishing Email Checklist</h2>
+                <p>Use this checklist whenever you receive a suspicious email:</p>
+
+                <div id="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Does the sender domain match the official website?</span>
+                    </div>
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Does the email address you by your real name?</span>
+                    </div>
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Is the email free of urgency or threat language?</span>
+                    </div>
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Did you hover over links to verify their destination?</span>
+                    </div>
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Is the email free of spelling or grammar mistakes?</span>
+                    </div>
+                    <div class="check-item" onclick="toggleCheck(this)">
+                        <span class="check-box">☐</span>
+                        <span>Were you expecting this email?</span>
+                    </div>
+                </div>
+
+                <div id="checklist-result" style="margin-top:15px;"></div>
+                <button onclick="checkResult()" style="margin-top:15px; padding:10px 20px; background:#4a90e2; color:white; border:none; border-radius:6px; font-size:14px; font-weight:bold; cursor:pointer;">Check Result</button>
+
+            </div>
+
+            <h2>📚 About This Project</h2>
+            <p>Built by <strong>Shahid Shaikh</strong> as part of a cybersecurity awareness portfolio during Ethical Hacking training at EyeQ Dot Net Pvt. Ltd.</p>
+
+        </div>
+    </div>
+
+    <script>
+        // Tip messages for highlighted parts
+        const tips = {
+            sender: '🚩 FAKE SENDER: The real SBI domain is sbi.co.in — this email comes from sbi-secure-banking.net which is a completely different domain registered by an attacker.',
+            subject: '🚩 URGENCY TRICK: Using ALL CAPS and "URGENT" is a psychological trick to make you panic and act without thinking.',
+            greeting: '🚩 GENERIC GREETING: Real banks always address you by your registered name. "Valued Customer" means the attacker does not know who you are — they sent this to thousands of people.',
+            urgency: '🚩 ARTIFICIAL DEADLINE: Creating a 24-hour deadline is a pressure tactic to stop you from thinking clearly or verifying the email.',
+            link: '🚩 HIDDEN LINK: This button could point to any malicious URL. Always hover over links to see the real destination before clicking.',
+            signature: '🚩 FAKE SIGNATURE: The signature uses the same fake domain as the sender. A real SBI email would come from and refer to sbi.co.in only.'
+        };
+
+        function showTip(key) {
+            const box = document.getElementById('tip-box');
+            box.style.display = 'block';
+            box.innerHTML = tips[key];
+        }
+
+        // Checklist toggle
+        function toggleCheck(item) {
+            const box = item.querySelector('.check-box');
+            if (box.textContent === '☐') {
+                box.textContent = '☑';
+                item.style.color = '#4CAF50';
+            } else {
+                box.textContent = '☐';
+                item.style.color = '#444';
+            }
+        }
+
+        function checkResult() {
+            const items = document.querySelectorAll('.check-item');
+            let checked = 0;
+            items.forEach(item => {
+                if (item.querySelector('.check-box').textContent === '☑') checked++;
+            });
+
+            const resultDiv = document.getElementById('checklist-result');
+            if (checked === 6) {
+                resultDiv.innerHTML = '<div class="captured-box" style="border-left-color:#4CAF50; background:#f0fff0;"><strong>✅ Email looks safe.</strong> All checks passed — this email appears legitimate. But always stay cautious.</div>';
+            } else if (checked >= 4) {
+                resultDiv.innerHTML = '<div class="captured-box"><strong>🟡 Proceed with caution.</strong> Most checks passed but verify the remaining points before clicking anything.</div>';
+            } else {
+                resultDiv.innerHTML = '<div class="captured-box"><strong>🔴 High Risk — Do NOT interact with this email.</strong> Too many checks failed. Report and delete this email immediately.</div>';
+            }
+        }
+    </script>
+
+</body>
+</html>

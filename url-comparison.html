@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Analysis - PhishGuard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer">
+        ⚠️ EDUCATIONAL DEMO ONLY — This page is for cybersecurity awareness purposes only.
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand" href="index.html">🎣 PhishGuard</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Live Demo</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="url-comparison.html">URL Analysis</a></li>
+            <li><a href="email-analyzer.html">Email Analysis</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-content">
+        <div class="busted-card">
+
+            <h1 style="color: #1a1a2e;">🔗 URL Analysis</h1>
+            <p>One of the easiest ways to spot a phishing attack is by carefully reading the URL. Attackers use clever
+                tricks to make fake URLs look real. Here's how to spot them.</p>
+
+            <!-- Section 1 — Typosquatting -->
+            <div class="technique-card">
+                <h2>1. Typosquatting</h2>
+                <p>Attackers register domains with small typos hoping users won't notice the difference.</p>
+
+                <div class="url-compare">
+                    <div class="url-real">
+                        <span class="url-label">✅ Real</span>
+                        <span class="url-text">https://www.<strong>google</strong>.com</span>
+                    </div>
+                    <div class="url-fake">
+                        <span class="url-label">❌ Fake</span>
+                        <span class="url-text">https://www.<strong>g00gle</strong>.com</span>
+                    </div>
+                </div>
+
+                <div class="url-compare">
+                    <div class="url-real">
+                        <span class="url-label">✅ Real</span>
+                        <span class="url-text">https://www.<strong>paypal</strong>.com</span>
+                    </div>
+                    <div class="url-fake">
+                        <span class="url-label">❌ Fake</span>
+                        <span class="url-text">https://www.<strong>paypa1</strong>.com</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Section 2 — Subdomain Tricks -->
+            <div class="technique-card">
+                <h2>2. Subdomain Tricks</h2>
+                <p>Attackers put the real brand name as a subdomain to confuse users. The actual domain is something
+                    else entirely.</p>
+
+                <div class="url-compare">
+                    <div class="url-real">
+                        <span class="url-label">✅ Real</span>
+                        <span class="url-text">https://<strong>sbi.co.in</strong></span>
+                    </div>
+                    <div class="url-fake">
+                        <span class="url-label">❌ Fake</span>
+                        <span class="url-text">https://<strong>sbi.co.in</strong>.login-secure.com</span>
+                    </div>
+                </div>
+
+                <div class="captured-box">
+                    <strong>Tip:</strong> Always read the URL from right to left — the real domain is just before the
+                    first single slash (/).
+                    In the fake URL above, the real domain is <strong>login-secure.com</strong> — not sbi.co.in.
+                </div>
+            </div>
+
+            <!-- Section 3 — HTTPS Misconception -->
+            <div class="technique-card">
+                <h2>3. HTTPS Does Not Mean Safe</h2>
+                <p>Many people think a padlock icon means a site is safe. That is wrong. HTTPS only means the connection
+                    is encrypted — it says nothing about whether the site is legitimate or malicious.</p>
+
+                <div class="url-compare">
+                    <div class="url-fake">
+                        <span class="url-label">⚠️ Still Fake</span>
+                        <span class="url-text">https://secure-bank-login.phish.net</span>
+                    </div>
+                </div>
+
+                <div class="captured-box">
+                    <strong>Remember:</strong> A phishing site CAN have HTTPS and a padlock. Always verify the domain
+                    name itself — not just the padlock.
+                </div>
+            </div>
+
+            <!-- Section 4 — URL Shorteners -->
+            <div class="technique-card">
+                <h2>4. URL Shorteners</h2>
+                <p>Attackers use URL shorteners like bit.ly to hide the real destination of a malicious link.</p>
+
+                <div class="url-compare">
+                    <div class="url-fake">
+                        <span class="url-label">⚠️ Hidden</span>
+                        <span class="url-text">https://bit.ly/3xKp9mQ</span>
+                    </div>
+                </div>
+
+                <div class="captured-box">
+                    <strong>Tip:</strong> Before clicking a shortened URL, use a URL expander like
+                    <strong>checkshorturl.com</strong> to see the real destination first.
+                </div>
+            </div>
+
+            <!-- Interactive URL Checker -->
+            <div class="technique-card">
+                <h2>🔍 Try It — URL Suspicion Checker</h2>
+                <p>Enter any URL below and we'll check it for common phishing patterns.</p>
+
+                <input type="text" id="url-input" placeholder="Enter a URL to analyse"
+                    style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:14px; margin-bottom:10px; outline:none;" />
+                <button onclick="analyseURL()"
+                    style="padding:10px 20px; background:#4a90e2; color:white; border:none; border-radius:6px; font-size:14px; font-weight:bold; cursor:pointer;">Analyse
+                    URL</button>
+
+                <div id="url-result" style="margin-top:15px;"></div>
+            </div>
+
+            <h2>✅ How To Read a URL Safely</h2>
+            <ul class="tips">
+                <li>Read the domain from right to left — real domain is just before the first /</li>
+                <li>Check for number substitutions — 0 for o, 1 for l, 3 for e</li>
+                <li>Be suspicious of extra words like "secure", "login", "verify" in the domain</li>
+                <li>Expand shortened URLs before clicking</li>
+                <li>HTTPS padlock does not guarantee the site is legitimate</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script>
+        function analyseURL() {
+            const url = document.getElementById('url-input').value.trim();
+            const resultDiv = document.getElementById('url-result');
+
+            if (url === '') {
+                resultDiv.innerHTML = '<div class="captured-box">⚠️ Please enter a URL first.</div>';
+                return;
+            }
+
+            let warnings = [];
+            let score = 0;
+
+            // Check for number substitutions
+            if (/[0-9]/.test(url.replace('https', '').replace('http', ''))) {
+                warnings.push('🚩 Contains numbers in domain — possible typosquatting (e.g. g00gle, paypa1)');
+                score++;
+            }
+
+            // Check for suspicious keywords
+            const suspiciousWords = ['secure', 'login', 'verify', 'update', 'account', 'banking', 'confirm'];
+            suspiciousWords.forEach(word => {
+                if (url.toLowerCase().includes(word)) {
+                    warnings.push('🚩 Contains suspicious keyword: "' + word + '"');
+                    score++;
+                }
+            });
+
+            // Check for multiple subdomains
+            try {
+                const hostname = new URL(url).hostname;
+                const parts = hostname.split('.');
+                if (parts.length > 3) {
+                    warnings.push('🚩 Multiple subdomains detected — possible subdomain trick');
+                    score++;
+                }
+            } catch (e) {
+                warnings.push('🚩 Invalid URL format');
+                score++;
+            }
+
+            // Check for URL shorteners
+            const shorteners = ['bit.ly', 'tinyurl', 'goo.gl', 't.co', 'ow.ly'];
+            shorteners.forEach(s => {
+                if (url.includes(s)) {
+                    warnings.push('🚩 URL shortener detected — real destination is hidden');
+                    score++;
+                }
+            });
+
+            // Check for HTTP (not HTTPS)
+            if (url.startsWith('http://')) {
+                warnings.push('🚩 Not using HTTPS — connection is not encrypted');
+                score++;
+            }
+
+            // Show result
+            if (warnings.length === 0) {
+                resultDiv.innerHTML = '<div class="captured-box" style="border-left-color:#4CAF50; background:#f0fff0;"><strong>✅ No obvious phishing patterns detected.</strong><br>But always stay cautious — not all phishing URLs trigger automated checks.</div>';
+            } else {
+                let risk = score <= 1 ? '🟡 Low Risk' : score <= 3 ? '🟠 Medium Risk' : '🔴 High Risk';
+                let html = '<div class="captured-box"><strong>⚠️ Result: ' + risk + ' (' + warnings.length + ' issues found)</strong><br><br>';
+                warnings.forEach(w => {
+                    html += w + '<br><br>';
+                });
+                html += '</div>';
+                resultDiv.innerHTML = html;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

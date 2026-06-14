@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer">
+        ⚠️ EDUCATIONAL DEMO ONLY — This is a simulated phishing page for awareness purposes. No data is stored or transmitted.
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand" href="index.html">🎣 PhishGuard</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Live Demo</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="url-comparison.html">URL Analysis</a></li>
+            <li><a href="email-analyzer.html">Email Analysis</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fake Login Card -->
+    <div class="page-content">
+        <div class="login-card">
+            <h1>🏦 SecureBank</h1>
+            <p>Sign in to your account to continue</p>
+
+            <input type="email" id="email" placeholder="Enter your email" />
+            <input type="password" id="password" placeholder="Enter your password" />
+            <button onclick="handleLogin()">Sign In</button>
+
+            <div class="footer-text">
+                © 2026 SecureBank. All rights reserved. <br>
+                <a href="#">Forgot Password?</a> · <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email === '' || password === '') {
+                alert('Please enter both email and password.');
+                return;
+            }
+
+            sessionStorage.setItem('captured_email', email);
+            sessionStorage.setItem('captured_password', password);
+
+            window.location.href = 'busted.html';
+        }
+    </script>
+
+</body>
+</html>

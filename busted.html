@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Got Phished - Awareness Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer">
+        ⚠️ EDUCATIONAL DEMO ONLY — This is a phishing awareness project. No data was stored or transmitted.
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand" href="index.html">🎣 PhishGuard</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Live Demo</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="url-comparison.html">URL Analysis</a></li>
+            <li><a href="email-analyzer.html">Email Analysis</a></li>
+        </ul>
+    </nav>
+
+    <!-- Busted Card -->
+    <div class="page-content">
+        <div class="busted-card">
+
+            <h1>🎣 You Just Got Phished!</h1>
+            <p>Don't worry — this is a controlled educational demo. But in a real attack, here's what just happened to your credentials:</p>
+
+            <!-- Show captured data -->
+            <div class="captured-box">
+                <strong>📧 Email captured:</strong> <span id="show-email">-</span><br><br>
+                <strong>🔑 Password captured:</strong> <span id="show-password">-</span>
+            </div>
+
+            <p>In a real phishing attack, this information would have been silently sent to an attacker's server the moment you clicked "Sign In" — without any warning.</p>
+
+            <!-- Red Flags Section -->
+            <h2>🚩 Red Flags You Should Have Noticed</h2>
+            <ul class="red-flags">
+                <li>The URL was not the official bank website</li>
+                <li>The page was not served over a verified HTTPS connection</li>
+                <li>No padlock or verified domain in the browser address bar</li>
+                <li>You received a link via email or message asking you to login</li>
+                <li>The page design looked slightly off or generic</li>
+            </ul>
+
+            <!-- Safety Tips Section -->
+            <h2>✅ How To Stay Safe</h2>
+            <ul class="tips">
+                <li>Always check the URL before entering credentials</li>
+                <li>Never click login links from emails or messages</li>
+                <li>Use a password manager — it won't autofill on fake sites</li>
+                <li>Enable Two Factor Authentication (2FA) on all accounts</li>
+                <li>When in doubt, go directly to the official website manually</li>
+            </ul>
+
+            <h2>📚 About This Demo</h2>
+            <p>This project was built by <strong>Shahid Shaikh</strong> as part of a cybersecurity portfolio to demonstrate how phishing attacks work and how users can protect themselves.</p>
+            <p>No data was collected, stored, or transmitted at any point during this demo.</p>
+
+            <button onclick="window.location.href='index.html'">🔁 Try Again</button>
+
+        </div>
+    </div>
+
+    <script>
+        const email = sessionStorage.getItem('captured_email');
+        const password = sessionStorage.getItem('captured_password');
+
+        if (email) {
+            document.getElementById('show-email').textContent = email;
+        }
+        if (password) {
+            document.getElementById('show-password').textContent = password;
+        }
+
+        sessionStorage.clear();
+    </script>
+
+</body>
+</html>
